@@ -1,0 +1,94 @@
+# i3blocks config file
+#
+# Please see man i3blocks for a complete reference!
+# The man page is also hosted at http://vivien.github.io/i3blocks
+#
+# List of valid properties:
+#
+# align
+# color
+# command
+# full_text
+# instance
+# interval
+# label
+# min_width
+# name
+# separator
+# separator_block_width
+# short_text
+# signal
+# urgent
+
+# Global properties
+separator_block_width=4
+
+#[click]
+#full_text=Click me!
+#command=echo "Got clicked with button $button"
+#background=#9400D3
+
+[volume]
+command=echo -n 'Master: '; amixer get Master | grep -E -o '[0-9][0-9]?%'
+interval=5
+signal=1
+background=#9400D3
+color=#FFFFFF
+# no interval, only check on SIGRTMIN+1
+
+# Guess the weather hourly
+[weather]
+command=curl -Ss 'https://wttr.in/trieste?0&T&Q' | cut -c 16- | head -3 | xargs echo
+interval=1800
+color=#FFFFFF
+background=#4B0082
+
+# Query my default IP address only on startup
+[ip]
+command=hostname -i | awk '{ print $2 }'
+interval=once
+color=#FFFFFF
+background=#0000FF
+
+[LANG]
+command=setxkbmap -query | grep layout | grep -oE '[^ ]+$'
+interval=5
+color=#202020
+background=#00FF00
+
+# Fancy text with multiple colors and shapes
+#[funky]
+#full_text=<span background="red" size="x-large">Roses</span> and <i><span color="#EE37B8">violets</span></i>!
+#markup=pango
+
+# Print click data
+#[clickme]
+#align=center
+#full_text=Click me!
+#min_width=Button=? x=? y=?
+#command=echo "Button=$button x=$x y=$y"
+#color=#ee7777
+
+# Print the last command entered in Bash
+[history]
+command=inotifywait -qq -e close_write ~/.zsh_history; tail -1 ~/.zsh_history | sed -E  's/(.*):0;(.*)/\2/'
+interval=5
+background=#FFFF00
+
+[time]
+command=date +'[ %A ][ week %V %Y ]'
+interval=3600
+#color=#8888ff
+background=#FF7F00
+
+[time]
+command=date +'[ { %d/%m/%y } (~‾▿‾)~ { %H:%M:%S } { %:z } ]'
+interval=1
+#color=#8888ff
+background=#FF0000
+
+#[pacman]
+#full_text=c *
+#command=echo "· ${full_text~~}"
+#background=#FF0000
+
