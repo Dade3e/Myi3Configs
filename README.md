@@ -1,7 +1,7 @@
 # Myi3Configs
 ## My i3 configurazion files ##
 
-![screen_i3block_zsh.png](/screnshots/screen_i3block_zsh.png)
+![screen_i3block_zsh](https://github.com/Dade3e/Myi3Configs/blob/main/screenshots/screen_i3block_zsh.png)
 
 La configurazione è divisa in 4 cartelle:
   - i3: è la configurazione base di i3 window manager;
