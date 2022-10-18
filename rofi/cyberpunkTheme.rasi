@@ -23,6 +23,8 @@ configuration {
     transparent: rgba(0,0,0,0);
 }
 #window {
+    height: 70%;
+    width: 512px;
     location: center;
     anchor:   center;
     transparency: "screenshot";
