@@ -15,7 +15,7 @@ configuration {
     foregroundText:  #A0A0A0;
     backlight:   #000000E0;
     background-color:  transparent;
-    dark: #1c1c1cE0;
+    dark: #1c1c1cC0;
     cyber: #6ECBF5;
     lightcyber: #C252E1;
     darkcyber: #2A2356;
@@ -23,11 +23,12 @@ configuration {
     transparent: rgba(0,0,0,0);
 }
 #window {
-    height: 70%;
+    height: 90%;
     width: 512px;
     location: center;
     anchor:   center;
     transparency: "screenshot";
+    background-image: url("rebecca.jpg", width);
     padding: 0px;
     border:  0px;
     border-radius: 8px;
