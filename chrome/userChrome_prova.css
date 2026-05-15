@@ -1,0 +1,113 @@
+/**
+ * Decrease size of the sidebar header
+ */
+ 
+/**
+#sidebar-header {
+  font-size: 1.2em !important;
+  padding: 2px 6px 2px 3px !important;
+}
+#sidebar-header #sidebar-close {
+  padding: 3px !important;
+}
+#sidebar-header #sidebar-close .toolbarbutton-icon {
+  width: 14px !important;
+  height: 14px !important;
+  opacity: 0.6 !important;
+}
+*/
+
+
+#TabsToolbar
+{
+    visibility: collapse;
+}
+
+
+
+#sidebar-header {
+  display: none;
+}
+
+
+
+#sidebar-header {
+  /* display: none; */
+  visibility: collapse !important;
+}
+
+/* Hide splitter */
+#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"] + #sidebar-splitter {
+  display: none !important;
+}
+
+/* Shrink sidebar until hovered */
+:root {
+  --thin-tab-width: 32px;
+  --wide-tab-width: 300px;
+  --wide-top-width: 44px;
+}
+#sidebar-box:not([sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]) {
+  min-width: var(--wide-tab-width) !important;
+  max-width: none !important;
+}
+#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"] {
+  overflow: hidden !important;
+  position: fixed !important; /* Cambia da relative a fixed */
+  top: var(--wide-top-width) !important;
+  left: 0 !important;
+  height: 100% !important; /* Assicura che copra l'intera altezza della finestra */
+  transition: all 100ms !important;
+  min-width: var(--thin-tab-width) !important;
+  max-width: var(--thin-tab-width) !important;
+  z-index: 2000; /* Sovrappone la sidebar al contenuto */
+}
+#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]:hover {
+  min-width: var(--wide-tab-width) !important;
+  max-width: var(--wide-tab-width) !important;
+}
+
+#browser {
+  margin-left: var(--thin-tab-width) !important; /* Previene lo spostamento del contenuto */
+}
+
+/**
+#sidebar-box[sidebarcommand="_3c078156-979c-498b-8990-85f7987dd929_-sidebar-action"]:hover {
+  margin-right: calc((var(--wide-tab-width) - var(--thin-tab-width)) * -1) !important;
+}
+*/
+
+/* Impedisce che le schede bloccate si spostino quando la sidebar si espande */
+#tabbrowser-tabs[pinnedtabs] .tabbrowser-tab[pinned] {
+  position: static !important; /* Mantiene le schede bloccate nella loro posizione */
+  margin: 0 !important; /* Rimuove eventuali margini indesiderati */
+  top: 0 !important; /* Imposta la posizione verticale fissa */
+  z-index: 1 !important; /* Assicura che le schede bloccate rimangano visibili */
+}
+
+/* Previene movimenti non desiderati dei pinned tabs */
+#tabbrowser-tabs[pinnedtabs] {
+  overflow: visible !important;
+  padding-left: 0 !important; /* Evita che le schede bloccate si muovano lateralmente */
+}
+
+/* Impedisce che l'intero contenitore delle schede venga influenzato */
+#tabbrowser-tabs {
+  margin-left: 0 !important; /* Mantiene il layout originale delle schede */
+}
+
+
+
+#main-window #titlebar {
+  overflow: hidden;
+  transition: height 0.1s 0.1s !important;
+}
+/* Default state: Set initial height to enable animation */
+#main-window #titlebar { height: 3em !important; }
+#main-window[uidensity="touch"] #titlebar { height: 3.35em !important; }
+#main-window[uidensity="compact"] #titlebar { height: 2.7em !important; }
+/* Hidden state: Hide native tabs strip */
+#main-window[titlepreface*="XXX"] #titlebar { height: 0 !important; }
+/* Hidden state: Fix z-index of active pinned tabs */
+#main-window[titlepreface*="XXX"] #tabbrowser-tabs { z-index: 0 !important; }
+
